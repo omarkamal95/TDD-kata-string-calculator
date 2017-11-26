@@ -15,5 +15,9 @@ describe("String Calculator", function() {
       expect(stringCalculator.addDelimitedString("1,2")).to.equal(3);
       expect(stringCalculator.addDelimitedString("121,4")).to.equal(125);
     });
+    it("should return correct sum of any ammount of numbers in the string", function() {
+      expect(stringCalculator.addDelimitedString("1,2,3,4,5,6,7,8,9,10")).to.equal(55);
+      expect(stringCalculator.addDelimitedString("121,4,80")).to.equal(205);
+    });
   });
 });

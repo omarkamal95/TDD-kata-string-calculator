@@ -4,10 +4,10 @@ stringCalculator.addDelimitedString = function (string) {
     return 0
   }
   let numArray = string.split(",");
-  if (numArray.length == 1) {
-    return parseInt(numArray[0]);
-  }
-  return parseInt(numArray[0]) + parseInt(numArray[1]);
+
+  return numArray.reduce((sum, numString) => {
+    return parseInt(sum) + parseInt(numString);
+  }, 0)
 }
 
 module.exports = stringCalculator
