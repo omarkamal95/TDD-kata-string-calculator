@@ -15,14 +15,14 @@ stringCalculator.addDelimitedString = function (string) {
   }, 0);
 
   if (negativeNumbers.length > 0) {
-    return new Error('Negative numbers are not allowed, the string contains: ' + negativeNumbers.toString())
+    throw new Error('Negative numbers are not allowed, the string contains: ' + negativeNumbers.toString())
   }
 
   if (typeof result === 'number' && !isNaN(result)) {
     return result
   }
 
-  return new Error('Wrong string format')
+  throw new Error('Wrong string format')
 }
 
 module.exports = stringCalculator

@@ -2,7 +2,7 @@ var chai = require("chai");
 var expect = chai.expect;
 var stringCalculator = require("../../services/string-calculator")
 
-describe("String Calculator", function () {
+describe("String Calculator unit test", function () {
   describe("Delimited String Addition", function () {
     it("should return 0 when string is empty", function () {
       expect(stringCalculator.addDelimitedString("")).to.be.equal(0);
@@ -21,15 +21,15 @@ describe("String Calculator", function () {
     });
     it("should return correct sum only if strings are seperated by ',' or '\\n'", function () {
       expect(stringCalculator.addDelimitedString("1\n2,3")).to.be.equal(6);
-      expect(stringCalculator.addDelimitedString("121,4,\n")).to.be.an('error');
+      expect(() => stringCalculator.addDelimitedString("121,4,\n")).to.throw(Error);
     });
     it("should reject any string with negative numbers and return an error with the numbers'", function () {
-      expect(stringCalculator.addDelimitedString("1\n2,3,-4,-5"))
-        .to.be.an("error")
-        .to.have.property("message", "Negative numbers are not allowed, the string contains: -4,-5");
-      expect(stringCalculator.addDelimitedString("121,4,\n-4,-11,-100,80"))
-        .to.be.an('error')
-        .to.have.property('message', "Negative numbers are not allowed, the string contains: -4,-11,-100");
+      expect(() => stringCalculator.addDelimitedString("1\n2,3,-4,-5"))
+        .to.throw(Error)
+        .has.property("message", "Negative numbers are not allowed, the string contains: -4,-5");
+      expect(() => stringCalculator.addDelimitedString("121,4,\n-4,-11,-100,80"))
+        .to.throw(Error)
+        .has.property("message", "Negative numbers are not allowed, the string contains: -4,-11,-100");
     });
   });
 });
