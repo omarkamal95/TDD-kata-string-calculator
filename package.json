@@ -6,10 +6,9 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "mocha --recursive test",
-    "test:coverage": "nyc npm test",
-    "test:unit": "mocha --recursive test/middleware test/models test/routes",
-    "test:integration": "mocha --recursive test/integration"
+    "test": "mocha --recursive tests",
+    "test:unit": "mocha --recursive test/unittests",
+    "test:integration": "mocha --recursive test/smoketest"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
@@ -22,4 +21,5 @@
     "mocha": "^4.0.1",
     "supertest": "^2.0.0"
   }
+}
 }
