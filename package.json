@@ -1,0 +1,27 @@
+{
+  "name": "tdd-kata-string-calculator",
+  "version": "0.0.1",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "mocha --recursive test",
+    "test:coverage": "nyc npm test",
+    "test:unit": "mocha --recursive test/middleware test/models test/routes",
+    "test:integration": "mocha --recursive test/integration"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "nodemon": "^1.12.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "debug": "^2.2.0",
+    "mocha": "^4.0.1",
+    "nyc": "^10.0.0",
+    "supertest": "^2.0.0"
+  }
+}
