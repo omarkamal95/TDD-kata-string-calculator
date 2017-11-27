@@ -1,25 +1,24 @@
 {
-  "name": "tdd-kata-string-calculator",
-  "version": "0.0.1",
-  "private": true,
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "mocha --recursive tests",
-    "test:unit": "mocha --recursive test/unittests",
-    "test:integration": "mocha --recursive test/smoketest"
-  },
-  "dependencies": {
-    "body-parser": "^1.13.3",
-    "express": "^4.13.3",
-    "morgan": "^1.6.1",
-    "nodemon": "^1.12.1"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^4.0.1",
-    "supertest": "^2.0.0"
-  }
-}
+    "name": "tdd-kata-string-calculator",
+    "version": "0.0.1",
+    "private": true,
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js",
+        "test": "mocha --recursive tests",
+        "test:unit": "mocha --recursive tests/unittests",
+        "test:integration": "mocha --recursive tests/smoketest"
+    },
+    "dependencies": {
+        "body-parser": "^1.13.3",
+        "express": "^4.13.3",
+        "morgan": "^1.6.1",
+        "nodemon": "^1.12.1"
+    },
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "mocha": "^4.0.1",
+        "supertest": "^2.0.0"
+    }
 }
