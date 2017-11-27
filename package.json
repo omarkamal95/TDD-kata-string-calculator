@@ -7,8 +7,8 @@
         "start": "node app.js",
         "dev": "nodemon app.js",
         "test": "mocha --recursive tests",
-        "test:unit": "mocha --recursive test/unittests",
-        "test:integration": "mocha --recursive test/smoketest"
+        "test:unit": "mocha --recursive tests/unittests",
+        "test:integration": "mocha --recursive tests/smoketest"
     },
     "dependencies": {
         "body-parser": "^1.13.3",
