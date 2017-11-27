@@ -1,32 +1,89 @@
 jobs:
 - name: Set PR Status
+  public: true
   plan:
-  
+  - get: string-calculator
+    trigger: true
+  - put: string-calculator
+    params:
+      path: string-calculator
+      status: pending
 ################################################
 #        PR Unit test                          #
 ################################################
 - name: String Calculator Unit Test
+  public: true
   plan:
-  
+  - get: string-calculator
+    passed:
+    - Set PR Status
+    trigger: true
+  - task: string-calculator-unittest
+    file: string-calculator/ci/unittest.yml
+    image: test-image
+    on_failure:
+      put: string-calculator
+      params:
+        path: string-calculator
+        status: failure
 ################################################
 #                Functional Test               #
 ################################################
 - name: Functional Test
+  public: true
   plan:
-  
+  - do:
+      - get: string-calculator
+        passed:
+        - String Calculator Unit Test
+        trigger: true
+    - task: string-calculator-functional-test
+      file: string-calculator/ci/functionalTest/functionaltest.yml
+      image: test-image
+    on_failure:
+      put: string-calculator
+      params:
+        path: string-calculator
+        status: failure
 
 #########################################
 #       Update PR on success            #
 #########################################
 - name: Update PR on Success
   plan:
-  
+  - get: string-calculator
+    trigger: true
+    passed:
+    - Functional Test
+  on_failure:
+      put: string-calculator
+      params:
+        path: string-calculator
+        status: failure
+  on_success:
+      put: string-calculator
+      params:
+        path: string-calculator
+        status: success
 #########################################
 #       Resourses                       #
 #########################################
 groups: []
 resources:
+- name: string-calculator
+  type: pull-request
+  source:
+    uri: ((string-calculator-repo-owner))/((string-calculator-repo-name))
+    base: master
+    access_token: {{github-token}}
 
+- name: test-image
+  type: docker-image
+  source: 
+    repository: node
 
 resource_types:
-
+- name: pull-request
+  type: docker-image
+  source:
+    repository: jtarchie/pr
