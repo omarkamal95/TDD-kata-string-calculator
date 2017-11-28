@@ -5,6 +5,8 @@ https://www.pivotaltracker.com/n/projects/2131602
 ## More Reading material
 - String calculator kata: http://osherove.com/tdd-kata-1/
 - More Katas: https://github.com/wix/tdd-katas & https://github.com/garora/TDD-Katas/wiki/Home:-The-Kata-List
-- More on TDD: https://github.com/dwyl/learn-tdd & 
-- TDD example with java https://github.com/danidemi/tutorial-java-tdd
-- Detroit vs London TDD https://github.com/testdouble/contributing-tests/wiki/Detroit-school-TDD
+- More on TDD: https://github.com/dwyl/learn-tdd 
+- TDD example with java: https://github.com/danidemi/tutorial-java-tdd
+- Detroit vs London TDD: https://github.com/testdouble/contributing-tests/wiki/Detroit-school-TDD
+- Pair programming example video: https://www.youtube.com/watch?v=zFO1cRr5-qY&feature=youtu.be
+- Concourse Tutorial: https://github.com/starkandwayne/concourse-tutorial
