@@ -10,3 +10,16 @@ https://www.pivotaltracker.com/n/projects/2131602
 - Detroit vs London TDD: https://github.com/testdouble/contributing-tests/wiki/Detroit-school-TDD
 - Pair programming example video: https://www.youtube.com/watch?v=zFO1cRr5-qY&feature=youtu.be
 - Concourse Tutorial: https://github.com/starkandwayne/concourse-tutorial
+
+
+## Git Duet Usage
+- write your initials, name and email in `~/.git-authors` as 
+```
+ authors:
+    jd: john joe, john.joe@emc.com
+    jj: jane jane, jane.jane@emc.com
+```
+- change working directory to repository
+- `git duet jd jj` to set pairs
+- when commiting use `git duet-commit` instead of `git commit`
+ 
