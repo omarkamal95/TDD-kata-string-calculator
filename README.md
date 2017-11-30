@@ -16,8 +16,11 @@ https://www.pivotaltracker.com/n/projects/2131602
 - write your initials, name and email in `~/.git-authors` as 
 ```
  authors:
-    jd: john joe, john.joe@emc.com
-    jj: jane jane, jane.jane@emc.com
+    jd: john joe
+    jj: jane jane
+email_addresses:
+    jd: john.joe@emc.com
+    jj: jane.jane@emc.com
 ```
 - change working directory to repository
 - `git duet jd jj` to set pairs
