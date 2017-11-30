@@ -14,12 +14,13 @@ jobs:
 - name: String Calculator Unit Test
   public: true
   plan:
+  - get: test-image
   - get: string-calculator
     passed:
     - Set PR Status
     trigger: true
   - task: string-calculator-unittest
-    file: string-calculator/ci/unittest.yml
+    file: string-calculator/ci/unitTest/unittest.yml
     image: test-image
     on_failure:
       put: string-calculator
@@ -33,13 +34,14 @@ jobs:
   public: true
   plan:
   - do:
+      - get: test-image
       - get: string-calculator
+        trigger: true
         passed:
         - String Calculator Unit Test
-        trigger: true
-    - task: string-calculator-functional-test
-      file: string-calculator/ci/functionalTest/functionaltest.yml
-      image: test-image
+      - task: string-calculator-functional-test
+        file: string-calculator/ci/functionalTest/functionaltest.yml
+        image: test-image
     on_failure:
       put: string-calculator
       params:
@@ -73,7 +75,7 @@ resources:
 - name: string-calculator
   type: pull-request
   source:
-    uri: ((string-calculator-repo-owner))/((string-calculator-repo-name))
+    repo: ((string-calculator-repo-owner))/((string-calculator-repo-name))
     base: master
     access_token: {{github-token}}
 
