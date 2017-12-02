@@ -11,6 +11,8 @@ https://www.pivotaltracker.com/n/projects/2131602
 - Pair programming example video: https://www.youtube.com/watch?v=zFO1cRr5-qY&feature=youtu.be
 - Concourse Tutorial: https://github.com/starkandwayne/concourse-tutorial
 
+## Presentation Slides
+Slides on XP, TDD, Pair programming and CI/CD: https://drive.google.com/file/d/1gra7hkcX02ndPa1uHc4acU86BDRI5DeA/view?usp=sharing
 
 ## Git Duet Usage
 - write your initials, name and email in `~/.git-authors` as 
